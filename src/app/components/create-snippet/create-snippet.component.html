@@ -1,0 +1,30 @@
+<form class="container" [formGroup]="snippetForm">
+  <h2>Create code snippet</h2>
+  <br />
+  <input
+    [formControl]="title"
+    type="text"
+    name="title"
+    id="title"
+    placeholder="Title here"
+  />
+  <p class="text-red" [hidden]="title.valid || title.untouched">
+    Titel is required
+  </p>
+  <br />
+  <textarea
+    [formControl]="code"
+    type="text"
+    name="code"
+    id="code"
+    placeholder="Code here"
+    rows="8"
+  ></textarea>
+  <p class="text-red" [hidden]="code.valid || code.untouched">
+    Code snippet is required
+  </p>
+  <br />
+  <button [disabled]="snippetForm.invalid" class="btn-green" (click)="save()">
+    Create
+  </button>
+</form>

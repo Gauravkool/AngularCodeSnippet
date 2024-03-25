@@ -1,0 +1,48 @@
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* background-color: #c0c1c5;  */
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #444; /* Dark mode input background color */
+  color: #fff; /* Dark mode input text color */
+  box-sizing: border-box;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc; /* Light mode placeholder color */
+}
+
+.text-red {
+  color: red;
+}
+
+.btn-green {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-green:hover {
+  background-color: #45a049;
+}
