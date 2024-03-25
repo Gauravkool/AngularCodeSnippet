@@ -1,0 +1,25 @@
+<form class="container" [formGroup]="loginForm">
+  <h2>Login Form</h2>
+  <input
+    [formControl]="email"
+    type="email"
+    name="email"
+    id="email"
+    placeholder="email here"
+  />
+  <p class="text-red" [hidden]="email.valid || email.untouched">
+    Email is not correct format
+  </p>
+  <input
+    [formControl]="password"
+    type="password"
+    name="password"
+    id="password"
+    placeholder="password here"
+  />
+  <p class="text-red" [hidden]="password.valid || password.untouched">
+    Please enter correct password and at least 6 characters
+  </p>
+  <button [disabled]="loginForm.invalid" class="btn-green" (click)="login()">Login</button>
+  <button class="btn-red" (click)="reset()">Reset</button>
+</form>
