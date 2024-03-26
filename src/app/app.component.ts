@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-
+import { firebaseConfig } from '../firebaseConfig';
+import { initializeApp } from 'firebase/app';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,5 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'angular-code-snippet';
+  constructor() {
+    initializeApp(firebaseConfig);
+  }
 }
