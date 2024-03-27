@@ -6,6 +6,7 @@ import { CreateSnippetComponent } from './components/create-snippet/create-snipp
 import { authGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { ViewSnippetComponent } from './components/view-snippet/view-snippet.component';
+import { DeferrableDemoComponent } from './components/deferrable-demo/deferrable-demo.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,7 @@ export const routes: Routes = [
       ),
   },
   { path: '', component: HomeComponent },
+  { path: 'demo', component: DeferrableDemoComponent },
   { path: 'snippet/:id', component: ViewSnippetComponent },
   { path: '**', component: NotfoundComponent },
 ];

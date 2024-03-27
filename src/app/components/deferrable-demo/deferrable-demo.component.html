@@ -1,0 +1,17 @@
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem deserunt
+  beatae quos quam, exercitationem tenetur fugiat harum molestias voluptates
+  aliquam amet esse reprehenderit similique non laborum placeat in autem.
+  Pariatur similique quam porro, facilis ipsum sequi eaque aliquid reiciendis
+  consequuntur tenetur eum eius incidunt deleniti eos ab qui quis. Recusandae
+</p>
+<button type="button" #view>View</button>
+@defer (on interaction(view)) {
+<app-heavy></app-heavy>
+}@placeholder {
+<h3>This is placeholder</h3>
+}@loading(after 100ms; minimum 5s) {
+<h3>Content is loading...</h3>
+}@error {
+<h3>Error while loading heavy component</h3>
+}
