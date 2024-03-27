@@ -32,7 +32,7 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user, 'User');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -49,7 +49,7 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('User', { user });
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       })
       .catch((error) => {
         const errorCode = error.code;

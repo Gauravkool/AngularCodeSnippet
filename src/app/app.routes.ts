@@ -4,6 +4,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CreateSnippetComponent } from './components/create-snippet/create-snippet.component';
 import { authGuard } from './auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { ViewSnippetComponent } from './components/view-snippet/view-snippet.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +22,7 @@ export const routes: Routes = [
         (m) => m.AboutComponent
       ),
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  { path: 'snippet/:id', component: ViewSnippetComponent },
   { path: '**', component: NotfoundComponent },
 ];

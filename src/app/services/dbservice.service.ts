@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   doc,
+  getDoc,
   getDocFromCache,
   getDocs,
   getFirestore,
@@ -8,12 +9,13 @@ import {
 import { collection, addDoc } from 'firebase/firestore';
 import { AuthService } from './auth.service';
 import { Snippet } from '../../models/snippet';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class DbserviceService {
   private db: any;
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.db = getFirestore();
   }
   async createSnippet(snippet: Snippet) {
@@ -23,6 +25,7 @@ export class DbserviceService {
         by: this.authService.getUid(),
       });
       console.log('Document written with ID: ', docRef.id);
+      this.router.navigate(['/']);
     } catch (e) {
       console.error('Error adding document: ', e);
       alert('Error while creating');
@@ -41,16 +44,16 @@ export class DbserviceService {
 
   async getSnippetById(docId: string) {
     const docRef = doc(this.db, 'snippets', docId);
-    try {
-      const doc = await getDocFromCache(docRef);
-      console.log('Cached document data:', doc.data());
-      return doc.data();
-    } catch (e) {
-      console.log('Error getting cached document:', e);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log('Document data:', docSnap.data());
+      return docSnap.data();
+    } else {
+      console.log('No such document!');
       return {
         id: '1',
         title: 'Not Found',
-        code: '',
+        code: 'Not Found',
       };
     }
   }

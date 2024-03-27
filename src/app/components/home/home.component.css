@@ -1,0 +1,17 @@
+/* Default styling for list items */
+.container {
+  margin: 50px auto;
+}
+
+li {
+  list-style-type: none;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* Styling for when no items are found */
+li.not-found {
+  font-style: italic;
+  color: #999;
+}
